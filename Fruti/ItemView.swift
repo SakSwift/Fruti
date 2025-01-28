@@ -12,16 +12,22 @@ struct ItemView: View {
     @State var item: Model
     
     var body: some View {
-        HStack {
-            Image("blueberry")
+        HStack(alignment: .top) {
+            Image("smoothie/berry-blue")
                 .resizable()
-                .frame(width: 40, height: 40, alignment: .center)
+                .frame(width: 60, height: 60)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            
             VStack(alignment: .leading) {
                 Text(item.name)
-                    .bold()
+                    .font(.headline)
+
                 Text(item.ingredients)
+                    .lineLimit(2)
+                
                 Text(item.calories)
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
             }
             
         }

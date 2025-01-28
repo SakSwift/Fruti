@@ -44,6 +44,8 @@ struct MenuListView: View {
               calories: "230 Calories")
     ]
     
+    @State var searchText: String = ""
+    
     var body: some View {
         NavigationStack {
             List {
@@ -51,6 +53,7 @@ struct MenuListView: View {
                     ItemView(item: item)
                 }
             }
+            .searchable(text: $searchText)
             .navigationTitle(Text("Menu"))
         }
     }
