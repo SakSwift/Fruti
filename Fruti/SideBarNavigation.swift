@@ -9,7 +9,35 @@ import SwiftUI
 
 struct SideBarNavigation: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationSplitView {
+            List {
+                NavigationLink {
+                    MenuListView()
+                } label: {
+                    Label("Menu", systemImage: "list.bullet")
+                }
+                
+                NavigationLink {
+                    FavouritesListView()
+                } label: {
+                    Label("Favourites", systemImage: "heart")
+                }
+            }
+        } content: {
+            Text("Select a category")
+                .foregroundStyle(.secondary)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background()
+                .ignoresSafeArea()
+            
+        } detail: {
+            Text("Select a smoothie")
+                .foregroundStyle(.secondary)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background()
+                .ignoresSafeArea()
+        }
     }
 }
 

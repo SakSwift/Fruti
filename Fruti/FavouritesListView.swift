@@ -11,6 +11,7 @@ struct FavouritesListView: View {
     
     @State var items: [Model] =
     [
+        .init(name: "MangoShake", ingredients: "Milk and Mango", calories: "600")
     ]
     
     @State var searchText: String = ""
