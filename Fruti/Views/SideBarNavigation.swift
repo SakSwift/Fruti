@@ -13,13 +13,13 @@ struct SideBarNavigation: View {
         NavigationSplitView {
             List {
                 NavigationLink {
-                    MenuListView()
+                    MenuListView(smoothies: []) // TODO: replace empty with 'Smoothie.all'
                 } label: {
                     Label("Menu", systemImage: "list.bullet")
                 }
                 
                 NavigationLink {
-                    FavouritesListView()
+                    FavouritesListView(smoothies: []) // TODO: replace empty with 'Smoothie.all'
                 } label: {
                     Label("Favourites", systemImage: "heart")
                 }

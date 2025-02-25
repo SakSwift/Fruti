@@ -9,21 +9,18 @@ import SwiftUI
 
 struct FavouritesListView: View {
     
-    @State var items: [Model] =
-    [
-        .init(name: "MangoShake", ingredients: "Milk and Mango", calories: "600")
-    ]
+    var smoothies: [Smoothie]
     
     @State var searchText: String = ""
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
-                    ItemView(item: item)
+                ForEach(smoothies) { inSmoothie in
+                    SmoothieRow(smoothie: inSmoothie)
                 }
             }.overlay {
-                if items.isEmpty {
+                if smoothies.isEmpty {
                     Text("Add some smoothies to your favourites!")
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -37,6 +34,6 @@ struct FavouritesListView: View {
     }
 }
 
-#Preview {
-    FavouritesListView()
-}
+//#Preview {
+//    FavouritesListView()
+//}

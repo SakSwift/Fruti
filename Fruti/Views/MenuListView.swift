@@ -7,50 +7,21 @@
 
 import SwiftUI
 
-struct Model: Identifiable {
-    var id = UUID()
-    let name: String
-    let ingredients: String
-    let calories: String
-}
-
 struct MenuListView: View {
     
-    @State var items: [Model] =
-    [
-        .init(name: "Berry Blue",
-              ingredients: "Orange, Blue Berry and Avocado",
-              calories: "520 Calories"),
-        .init(name: "Carrot Chops",
-              ingredients: "Orange, Carrot and Mango",
-              calories: "230 Calories"),
-        .init(name: "Berry Blue",
-              ingredients: "Orange, Blue Berry and Avocado",
-              calories: "520 Calories"),
-        .init(name: "Carrot Chops",
-              ingredients: "Orange, Carrot and Mango",
-              calories: "230 Calories"),
-        .init(name: "Berry Blue",
-              ingredients: "Orange, Blue Berry and Avocado",
-              calories: "520 Calories"),
-        .init(name: "Carrot Chops",
-              ingredients: "Orange, Carrot and Mango",
-              calories: "230 Calories"),
-        .init(name: "Berry Blue",
-              ingredients: "Orange, Blue Berry and Avocado",
-              calories: "520 Calories"),
-        .init(name: "Carrot Chops",
-              ingredients: "Orange, Carrot and Mango",
-              calories: "230 Calories")
-    ]
-    
     @State var searchText: String = ""
+    
+    var smoothies: [Smoothie]
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(items) { item in
-                    ItemView(item: item)
+                ForEach(smoothies) { smoothie in
+                    NavigationLink {
+                        // TODO: Add details view here..
+                    } label: {
+                        SmoothieRow(smoothie: smoothie)
+                    }
                 }
             }
             .searchable(text: $searchText)
@@ -63,6 +34,6 @@ struct MenuListView: View {
     }
 }
 
-#Preview {
-    MenuListView()
-}
+//#Preview {
+//    MenuListView(smoothies: <#[Smoothie]#>)
+//}
