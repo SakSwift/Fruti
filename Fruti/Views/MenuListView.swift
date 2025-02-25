@@ -55,6 +55,10 @@ struct MenuListView: View {
             }
             .searchable(text: $searchText)
             .navigationTitle(Text("Menu"))
+            .onAppear {
+                let value = getNutrition
+                print("val: \(value)")
+            }
         }
     }
 }
