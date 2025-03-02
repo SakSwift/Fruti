@@ -16,3 +16,17 @@ struct MeasuredIngredient {
         self.measurement = measurement
     }
 }
+
+
+extension Ingredient {
+    func measured(with unit: UnitVolume) -> MeasuredIngredient {
+        return .init(ingredient: self, measurement: .init(value: 1, unit: unit))
+    }
+}
+
+extension MeasuredIngredient {
+    
+    func scaled(by scale: Double) -> MeasuredIngredient {
+        return .init(ingredient: ingredient, measurement: measurement * scale)
+    }
+}
