@@ -14,6 +14,22 @@ struct Smoothie: Identifiable {
     var measuredIngredients: [MeasuredIngredient]
 }
 
+// MARK: - Smoothie Row
+extension Smoothie {
+    func menuIngredients() -> [MeasuredIngredient] {
+        self.measuredIngredients.filter { $0.ingredient.id != "water"}
+    }
+    
+    func getIngredients() -> String {
+        let ingredients = menuIngredients()
+        guard !ingredients.isEmpty else { return "" }
+        var list = [String]()
+        list.append(ingredients.first!.ingredient.name.localizedCapitalized)
+        list.append(contentsOf: ingredients.dropFirst().map { $0.ingredient.name.localizedLowercase })
+        return ListFormatter.localizedString(byJoining: list)
+    }
+}
+
 // MARK: - Smoothie List
 extension Smoothie {
     @SmoothieArrayBuilder

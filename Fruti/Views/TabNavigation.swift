@@ -20,7 +20,7 @@ struct TabNavigation: View {
         TabView(selection: $selection) {
             
             Tab("Menu", systemImage: "list.bullet", value: .menu) {
-                MenuListView(smoothies: [])// TODO: replace empty with 'Smoothie.all'
+                MenuListView(smoothies: Smoothie.all())// TODO: replace empty with 'Smoothie.all'
             }
             
             Tab("Favourites", systemImage: "heart.fill", value: .favourites) {
