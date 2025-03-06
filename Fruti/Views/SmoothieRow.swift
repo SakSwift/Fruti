@@ -22,12 +22,8 @@ struct SmoothieRow: View {
                 Text(smoothie.title)
                     .font(.headline)
 
-//                Text(item.)
-//                    .lineLimit(2)
-//                
-//                Text(item.calories)
-//                    .foregroundStyle(.secondary)
-//                    .lineLimit(1)
+                Text(smoothie.getIngredients())
+                    .lineLimit(2)
             }
             
         }
