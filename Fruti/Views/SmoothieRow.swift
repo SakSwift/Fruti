@@ -24,8 +24,10 @@ struct SmoothieRow: View {
 
                 Text(smoothie.getIngredients())
                     .lineLimit(2)
+                
+                Text(smoothie.energy.formatted(.measurement(width: .wide, usage: .food)))
+                    .lineLimit(1)
             }
-            
         }
     }
 }

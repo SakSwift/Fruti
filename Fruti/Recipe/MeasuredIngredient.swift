@@ -26,6 +26,22 @@ extension Ingredient {
 
 extension MeasuredIngredient {
     
+    var kiloCalories: Int {
+        guard let nutrition = nutrition else {
+            return 0
+        }
+        return Int(nutrition.kilocalories)
+    }
+    
+    // Nutritional information according to the quantity of this measurement.
+    var nutrition: Nutrition? {
+        guard let nutritionFact = ingredient.nutrition else {
+            return nil
+        }
+        let mass = measurement.convertedToMass(usingDensity: nutritionFact.density)
+        return nutritionFact.converted(toMass: mass)
+    }
+    
     func scaled(by scale: Double) -> MeasuredIngredient {
         return .init(ingredient: ingredient, measurement: measurement * scale)
     }

@@ -28,6 +28,15 @@ extension Smoothie {
         list.append(contentsOf: ingredients.dropFirst().map { $0.ingredient.name.localizedLowercase })
         return ListFormatter.localizedString(byJoining: list)
     }
+    
+    var kilocalories: Int {
+        let value = measuredIngredients.reduce(0) {(total, ingredient) in total + ingredient.kiloCalories }
+        return Int(round(Double(value) / 10.0) * 10)
+    }
+    
+    var energy: Measurement<UnitEnergy> {
+        return Measurement<UnitEnergy>(value: Double(kilocalories), unit: .kilocalories)
+    }
 }
 
 // MARK: - Smoothie List
